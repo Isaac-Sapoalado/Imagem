@@ -1,4 +1,4 @@
-
+var token;
 async function cadastro(){
     r = await fetch(
         "http://127.0.0.1:8000/auth/cadastro/",{
@@ -13,8 +13,6 @@ async function cadastro(){
                 'password':'3'
             })
         }).then(response => response.json()).then(dado => {return dado})
-
-    console.log(r)
     
         
 }
@@ -32,10 +30,10 @@ async function login(){
                 'password':'senha'
             })
         }).then(response => response.json()).then(dado => {return dado})
-    
-    setCookie('user',r.user)
-    setCookie('token',('token' + r.access_token))
-    console.log(r)
+
+    sessionStorage.setItem('user',r.user)
+    sessionStorage.setItem('token',('Token ' + r.access_token))
+
 }
 
 
