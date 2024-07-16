@@ -31,5 +31,5 @@ class LoginView(APIView):
         if usuario != []:
             usuario = usuario[0]
             usuario = UsuarioSerializer(usuario)
-            return Response(data={'access_token': token.key,'user':usuario.data})
-        return Response(data={'access_token': token.key})
+            return Response(data={'access_token': token.key,'user':usuario.data},headers={'access_token': token.key})
+        return Response(data={'access_token': token.key},headers={'access_token': token.key})
