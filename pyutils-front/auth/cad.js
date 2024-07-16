@@ -33,6 +33,8 @@ async function login(){
             })
         }).then(response => response.json()).then(dado => {return dado})
     
+    setCookie('user',r.user)
+    setCookie('token',('token' + r.access_token))
     console.log(r)
 }
 
